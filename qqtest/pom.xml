@@ -59,9 +59,12 @@
                         </execution> 
                     </executions> 
                     <configuration> 
-                    
+                            <testFilesIncluded>
+                                <JMeterTestFile>fastfood_fankaorder-20171014.jmx</JMeterTestFile>
+                            </testFilesIncluded>
+                            
                       	    <testFilesExcluded>
-                                <excludeJMeterTestFile>test.jmx</excludeJMeterTestFile>
+                                <excludeJMeterTestFile></excludeJMeterTestFile>
                             </testFilesExcluded>
                              
                              <suppressJMeterOutput>false</suppressJMeterOutput>
