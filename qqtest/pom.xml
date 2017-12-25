@@ -7,7 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Ddtech-jxc-api-autotest</name>
+
   <url>http://maven.apache.org</url>
   
   <properties>
@@ -18,7 +18,7 @@
     <profile>
     <id>jenkins</id>
     <properties>
-      <performancetest.webservice.host></performancetest.webservice.host>
+      <performancetest.webservice.host>117.48.218.169</performancetest.webservice.host>
       <performancetest.webservice.port>8000</performancetest.webservice.port>
     </properties>
   </profile>
@@ -37,6 +37,12 @@
   <groupId>org.codehaus.mojo</groupId>
   <artifactId>xml-maven-plugin</artifactId>
   <version>1.0</version>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-resources-plugin</artifactId>
+    <version>2.4.3</version>
 </dependency>
 
   </dependencies>
@@ -107,21 +113,33 @@
                    </transformationSets>
                </configuration>
            </plugin>  
+		   
+		              <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-clean-plugin</artifactId>
+    <version>2.5</version>
+    <configuration>
+        <filesets>
+            <fileset>
+                <directory>F:/logs</directory>
+            </fileset>
+            <fileset>
+                <directory>../message-test</directory>
+                <includes>
+                    <include>spy.log</include>
+                </includes>
+            </fileset>
+            <fileset>
+                <directory>../message-test/target</directory>
+            </fileset>
+        </filesets>
+    </configuration>
+</plugin>
+
 </plugins>
 	
 </build>
-<pluginRepositories>
-		<pluginRepository>
-			<id>Codehaus repository</id>
-			<url>http://repository.codehaus.org/</url>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
+
+	  <name>Ddtech-jxc-api-autotest</name>
+	  
 </project>
